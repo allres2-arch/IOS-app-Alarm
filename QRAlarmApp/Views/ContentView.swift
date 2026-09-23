@@ -56,12 +56,15 @@ struct AlarmRow: View {
 
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(timeString)
                     .font(.title2)
                     .fontWeight(.bold)
                 Text(alarm.label)
                     .font(.caption)
+                    .foregroundColor(.gray)
+                Text(alarm.sound.displayName)
+                    .font(.caption2)
                     .foregroundColor(.gray)
             }
             Spacer()

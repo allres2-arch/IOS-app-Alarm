@@ -58,7 +58,7 @@ class AlarmManager: NSObject, ObservableObject, UNUserNotificationCenterDelegate
         let content = UNMutableNotificationContent()
         content.title = "Alarm: \(alarm.label)"
         content.body = "Scan QR code to dismiss"
-        content.sound = .default
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: alarm.sound.systemSoundName))
         content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + 1)
 
         let components = Calendar.current.dateComponents([.hour, .minute], from: alarm.time)
